@@ -1,0 +1,46 @@
+import random
+
+temperature = random.randint(25 , 480)
+neutrons_emitted = random.randint(0, 50)
+
+def is_criticality_balanced(temperature, neutrons_emitted):
+    product = neutrons_emitted * temperature
+    return product < 500000 and temperature < 800 and neutrons_emitted > 500
+
+print(f"{temperature} C")
+print(is_criticality_balanced(temperature, neutrons_emitted))
+
+
+voltage = random.randint(0,150)
+current = random.randint(0,150)
+theoretical_max_power = 15000
+
+
+def reactor_efficiency(voltage, current, theoretical_max_power):
+    generated_power = voltage * current
+    percent = generated_power / theoretical_max_power * 100
+
+    if percent >= 80:
+        return "green"
+    elif percent >= 60:
+        return "orange"
+    elif percent >= 30:
+        return "red"
+    else:
+        return "black"
+print(reactor_efficiency(voltage, current, theoretical_max_power))
+print(f"Voltage: {voltage}")
+print(f"Current: {current}")
+
+threshold = 10000
+
+def fail_safe(temperature, neutrons_emitted, threshold):
+    product = temperature * neutrons_emitted
+
+    if product < 0.9 * threshold:
+        return "LOW"
+    elif product <= 1.1 * threshold:
+        return "NORMAL"
+    else:
+        return "DANGER"
+print(fail_safe(temperature, neutrons_emitted, threshold))

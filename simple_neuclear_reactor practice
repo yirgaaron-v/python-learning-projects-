@@ -20,4 +20,5 @@ def are_conds_met(temperature, neutrons_emitted, neutrons_emitted_per_min):
         return True
     else:
         return False
+
 print(are_conds_met(random_temp(), neuclear(), neuclear_persec()))
