@@ -1,0 +1,26 @@
+student_scores = [90.33, 40.5, 55.44, 70.05, 30.55, 25.45, 80.45, 95.3, 38.7, 40.3]
+
+rounded_scores = []
+def round_scores(student_scores):
+    for x in student_scores:
+        rounded_scores.append(round(x))
+    return rounded_scores 
+print(round_scores(student_scores))
+
+def count_failed_students(rounded_scores):
+    count = 0
+
+    for score in rounded_scores:
+        if score < 40:
+            count += 1
+    return count
+print(count_failed_students(student_scores))
+
+threshold = 75
+def above_threshold(rounded_scores, threshold):
+    threshold_list = []
+    for p in rounded_scores:
+        if p > threshold:
+            threshold_list.append(p)
+   
+print(above_threshold(rounded_scores, threshold))
