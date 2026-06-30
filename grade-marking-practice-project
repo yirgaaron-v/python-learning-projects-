@@ -1,0 +1,66 @@
+student_scores = [90.33, 40.5, 55.44, 70.05, 30.55, 25.45, 80.45, 95.3, 38.7, 40.3]
+
+rounded_scores = []
+def round_scores(student_scores):
+    for x in student_scores:
+        rounded_scores.append(round(x))
+    return rounded_scores 
+print("rounded student scores", round_scores(student_scores))
+
+def count_failed_students(rounded_scores):
+    count = 0
+
+    for score in rounded_scores:
+        if score < 40:
+            count += 1
+    return count
+print("how many students failed? : ", count_failed_students(student_scores))
+
+threshold = 75
+def above_threshold(rounded_scores, threshold):
+    threshold_list = []
+    for p in rounded_scores:
+        if p > threshold:
+            threshold_list.append(p)
+    return threshold_list 
+print("students with higher grade", above_threshold(rounded_scores, threshold))
+
+
+highest = 100
+def letter_grades(highest):
+    step = (highest - 40) // 4
+
+    grades = [41]
+
+    for i in range(3):
+        grades.append(grades[-1] + step)
+
+    return grades
+print("highest scores",letter_grades(highest))
+rounded_scores = round_scores(student_scores)
+
+student_scores = [100, 99, 90, 84, 66, 53, 47]
+student_names =  ['Joci', 'Sara','Kora','Jan','John','Bern', 'Fred']
+
+def student_ranking(student_scores, student_names):
+    rankings = []
+
+    for  i in range(len(student_scores)):
+        rankings.append(f"{i + 1}. {student_names[i]}: {student_scores[i]}")
+
+    return rankings
+print(student_ranking(student_scores, student_names))
+
+
+student_info = [
+    ["Charles", 90],
+    ["Tony", 80],
+    ["Alex", 100]]
+
+def perfect_score(student_info):
+    for name, score in student_info:
+        if score == 100:
+            return [name, score]
+
+    return []
+print(perfect_score(student_info))
